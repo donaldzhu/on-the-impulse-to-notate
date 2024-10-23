@@ -1,0 +1,219 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  text-wrap: pretty;
+
+  @supports (hanging-punctuation: first) {
+    hanging-punctuation: first;
+  }
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./assets/fonts/Apercu/apercu_light.otf");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: italic;
+  font-weight: 300;
+  src: url("./assets/fonts/Apercu/apercu_light_italic.otf");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./assets/fonts/Apercu/apercu_regular.otf");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: italic;
+  font-weight: normal;
+  src: url("./assets/fonts/Apercu/apercu_regular_italic.otf");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Apercu/apercu_medium.otf");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: normal;
+  font-weight: bold;
+  src: url("./assets/fonts/Apercu/apercu_bold.otf");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: italic;
+  font-weight: bold;
+  src: url("./assets/fonts/Apercu/apercu_bold_italic.otf");
+}
+
+@font-face {
+  font-family: "Apercu Mono";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./assets/fonts/Apercu/apercu_mono.otf");
+}
+
+@font-face {
+  font-family: "Apercu Condensed Pro";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./assets/fonts/Apercu Condensed Pro/Apercu Condensed Pro Light.ttf");
+}
+
+@font-face {
+  font-family: "Apercu Condensed Pro";
+  font-style: italic;
+  font-weight: 300;
+  src: url("./assets/fonts/Apercu Condensed Pro/Apercu Condensed Pro Light Italic.ttf");
+}
+
+@font-face {
+  font-family: "Apercu Condensed Pro";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./assets/fonts/Apercu Condensed Pro/Apercu Condensed Pro Regular.ttf");
+}
+
+@font-face {
+  font-family: "Apercu Condensed Pro";
+  font-style: italic;
+  font-weight: normal;
+  src: url("./assets/fonts/Apercu Condensed Pro/Apercu Condensed Pro Italic.ttf");
+}
+
+@font-face {
+  font-family: "Apercu Condensed Pro";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Apercu Condensed Pro/Apercu Condensed Pro Medium.ttf");
+}
+
+@font-face {
+  font-family: "Apercu Condensed Pro";
+  font-style: italic;
+  font-weight: 500;
+  src: url("./assets/fonts/Apercu Condensed Pro/Apercu Condensed Pro Medium Italic.ttf");
+}
+
+@font-face {
+  font-family: "Apercu Condensed Pro";
+  font-style: normal;
+  font-weight: bold;
+  src: url("./assets/fonts/Apercu Condensed Pro/Apercu Condensed Pro Bold.ttf");
+}
+
+@font-face {
+  font-family: "Apercu Condensed Pro";
+  font-style: italic;
+  font-weight: bold;
+  src: url("./assets/fonts/Apercu Condensed Pro/Apercu Condensed Pro Bold Italic.ttf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-Light.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: italic;
+  font-weight: 300;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-LightItalic.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-Regular.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: italic;
+  font-weight: normal;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-RegularItalic.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-Medium.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: italic;
+  font-weight: 500;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-MediumItalic.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: normal;
+  font-weight: bold;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-Bold.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: italic;
+  font-weight: bold;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-BoldItalic.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: normal;
+  font-weight: 800;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-ExtraBold.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: italic;
+  font-weight: 800;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-ExtraBoldItalic.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: normal;
+  font-weight: 900;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-Black.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  font-style: italic;
+  font-weight: 900;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-BlackItalic.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL Book";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-Book.otf");
+}
+
+@font-face {
+  font-family: "Bradford LL Book";
+  font-style: italic;
+  font-weight: normal;
+  src: url("./assets/fonts/Bradford LL/BradfordLL-BookItalic.otf");
+}
