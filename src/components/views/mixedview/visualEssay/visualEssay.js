@@ -2,7 +2,7 @@ import { useWindowSize } from '@uidotdev/usehooks'
 import _ from 'lodash'
 import { useEffect, useMemo, useRef } from 'react'
 import styled from 'styled-components'
-import { CLS_ID, COLORS, SIZES } from '../../../../constants/stylesConstants'
+import { COLORS, SIZES } from '../../../../constants/stylesConstants'
 import useIsMobile from '../../../../hooks/useIsMobile'
 import parserServices from '../../../../services/parserServices'
 import { addEventListener, getScrolling } from '../../../../utils/reactUtils'
@@ -10,7 +10,13 @@ import { extract, styleIf } from '../../../../utils/styleUtils'
 import VisualEssayImg from './visualEssayImg'
 
 
-const VisualEssay = ({ data, sizeData, isBlueInsights, handleBlueInsightsIntersect, onHoverCitation }) => {
+const VisualEssay = ({
+  data,
+  sizeData,
+  isBlueInsights,
+  handleBlueInsightsIntersect,
+  onHoverCitation
+}) => {
   const isMobile = useIsMobile()
   const { width } = useWindowSize()
   const parsedData = useMemo(() =>

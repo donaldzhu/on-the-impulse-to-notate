@@ -8,9 +8,9 @@ import parserServices from '../../../services/parserServices'
 import { validateString } from '../../../utils/commonUtils'
 import mixins from '../../../utils/mixins'
 import { getChildrenHeight } from '../../../utils/reactUtils'
+import { getVh } from '../../../utils/sizeUtils'
 import { styleIf } from '../../../utils/styleUtils'
 import MixedViewImg from './mixedViewImg'
-import { getVh } from '../../../utils/sizeUtils'
 
 
 const MixedViewSection = ({
