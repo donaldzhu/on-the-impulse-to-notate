@@ -184,6 +184,10 @@ const Row = styled.div`
   grid-template-columns: ${SIZES.INDEX_ARTIST_WIDTH} ${SIZES.INDEX_MEDIUM_WIDTH} 1fr ${SIZES.INDEX_PAGE_NUM_WIDTH.css};
   /* cursor: pointer; */
 
+  &:last-child {
+    border-bottom: 0;
+  }
+
   p {
     font-family: ${FONT_FAMILIES.APERCU_COND};
     font-weight: normal;

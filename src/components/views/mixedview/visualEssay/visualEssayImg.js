@@ -7,7 +7,7 @@ import useFadeIn from '../../../../hooks/useFadeIn'
 import { getImgAtSize } from '../../../../utils/sizeUtils'
 
 
-const VisualEssayImg = ({ data, color }) => {
+const VisualEssayImg = ({ data, color, onHoverCitation }) => {
   const { nodeData, width, top, left, alignBottom } = data
   const { imgLink } = nodeData
   const src = getImgAtSize(imgLink, Math.min(
@@ -20,6 +20,7 @@ const VisualEssayImg = ({ data, color }) => {
       color={color}
       footnote={opacity ? <ProjectCitation {...nodeData} /> : null}
       imgRef={ref}
+      onHover={onHoverCitation}
       fixedSize>
       <Figure
         ref={ref}

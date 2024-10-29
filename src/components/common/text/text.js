@@ -15,6 +15,7 @@ import TextHeader from './textHeader'
 const Text = ({
   id,
   index,
+  lineCount,
   nodeData,
   onHover,
   onRender,
@@ -46,7 +47,7 @@ const Text = ({
     const getParsed = truncate => parserServices
       .parseTextView(text, {
         truncate,
-        footnotes,
+        lineCount,
         projects,
         handleButtonClick,
         buttonHoverHandlers,
@@ -55,7 +56,7 @@ const Text = ({
     return isExpanded ? getParsed(false) :
       <Paragraph asDiv hang={hang}>
         <TruncateMarkup
-          lines={4}
+          lines={lineCount}
           tokenize='words'
           ellipsis={
             <ExpandButton

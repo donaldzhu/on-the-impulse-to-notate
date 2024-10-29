@@ -10,6 +10,7 @@ import mixins from '../../../utils/mixins'
 import { getChildrenHeight } from '../../../utils/reactUtils'
 import { styleIf } from '../../../utils/styleUtils'
 import MixedViewImg from './mixedViewImg'
+import { getVh } from '../../../utils/sizeUtils'
 
 
 const MixedViewSection = ({
@@ -62,6 +63,17 @@ const MixedViewSection = ({
   const [bufferPadding, setBufferPadding] = useState()
 
   useEffect(() => {
+    // if (sectionHeights.length === 2)
+    if (sectionHeights.length === 1 && sectionHeights[0]) {
+      const { textHeight, imgHeight } = sectionHeights[0]
+      const padding = Math.max(
+        imgHeight - textHeight + getVh(SIZES.FADE_IN_VH),
+        getDesktopPaddingSize().value
+      )
+      console.log(nodeData, sectionHeights, padding)
+      setBufferPadding(padding)
+    }
+
     if (
       isMobile ||
       !sectionHeights.every(s => s) ||

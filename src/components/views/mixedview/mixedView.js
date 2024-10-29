@@ -68,6 +68,7 @@ const MixedView = ({
         return newHeights
       })
 
+      const handleHoverCitation = citation => setCitation(citation)
       return (
         <React.Fragment key={i}>
           <MixedViewSection
@@ -79,14 +80,15 @@ const MixedView = ({
             afterVisualEssay={afterVisualEssay}
             sectionHeights={sectionHeights.slice(i, i + 3)}
             onSetHeight={handleSetHeight}
-            onHoverCitation={citation => setCitation(citation)} />
+            onHoverCitation={handleHoverCitation} />
           {hasVisualEssay && <VisualEssay
             data={data}
             sizeData={isBlueInsights ?
               visualEssays.blueInsights[device] :
               visualEssays.surfaceManipulation[device]}
             isBlueInsights={isBlueInsights}
-            handleBlueInsightsIntersect={handleBlueInsightsIntersect} />}
+            handleBlueInsightsIntersect={handleBlueInsightsIntersect}
+            onHoverCitation={handleHoverCitation} />}
         </React.Fragment>
       )
     })
@@ -108,23 +110,20 @@ const MixedView = ({
   )
 }
 
-const BasedContainer = styled(FullContainer)`
-  > div:last-of-type  {
-    > :nth-child(2) {
-      padding-bottom: ${SIZES.MIXED_VIEW_PADDING_BOTTOM.mult(6).css};
-    }
-  }
-`
-
-const DesktopContainer = styled(BasedContainer)`
+const DesktopContainer = styled(FullContainer)`
   overflow-y: scroll;
   transition: opacity linear ${TIMINGS.MIXED_FIGURE_OPACITY}ms;
 `
 
-const MobileContainer = styled(BasedContainer)`
+const MobileContainer = styled(FullContainer)`
   overflow-y: hidden;
   height: fit-content;
   position: relative;
+  > div:last-of-type  {
+    > :nth-child(2) {
+      padding-bottom: ${SIZES.MIXED_VIEW_PADDING_BOTTOM.css};
+    }
+  }
 `
 
 export default MixedView

@@ -16,13 +16,6 @@ const Citation = ({ children, footnote, color, imgRef, fixedSize, onHover, style
   const { getCitationHoverHandlers } = useContext(DesktopContext)
   const buttonHoverHandlers = getCitationHoverHandlers(color === COLORS.BLUE)
 
-  useEffect(() => {
-    if (!onHover) return
-    onHover(
-      !isHovering ? null :
-        { children: footnote, color, imgRef, fixedSize })
-  }, [!!footnote, color, imgRef, fixedSize, isHovering])
-
   useEffect(() => setIsHovering(isHovering), [isHovering])
   useEffect(() => addEventListener(window, 'scroll', () => {
     if (isMobile && touched) setIsHovering(false)
@@ -33,14 +26,17 @@ const Citation = ({ children, footnote, color, imgRef, fixedSize, onHover, style
 
   const handleMouseOver = () => {
     if (!footnote) return
-    setIsHovering(true)
     buttonHoverHandlers?.onMouseOver()
+    if (!onHover) return
+    onHover({ children: footnote, color, imgRef, fixedSize })
   }
 
   const handleMouseOut = () => {
     if (!footnote) return
     setIsHovering(false)
     buttonHoverHandlers?.onMouseOut()
+    if (!onHover) return
+    onHover()
   }
 
   return (
@@ -55,12 +51,12 @@ const Citation = ({ children, footnote, color, imgRef, fixedSize, onHover, style
         onMouseOut={handleMouseOut}>
         {children}
       </CitationSpan>
-      <PopUpCitation
+      {/* <PopUpCitation
         color={color}
         imgRef={imgRef}
         fixedSize={fixedSize}>
         {isHovering && !onHover && footnote}
-      </PopUpCitation>
+      </PopUpCitation> */}
     </>
   )
 }

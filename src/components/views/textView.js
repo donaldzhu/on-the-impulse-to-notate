@@ -9,12 +9,24 @@ import PopUpCitation from '../common/text/popUpCitation'
 import Text from '../common/text/text'
 
 
-const TextView = ({ data, isOrdered, memoizedNodeData, handleMemoizeNodeData }) => {
+const TextView = ({
+  data,
+  isOrdered,
+  lineCounts,
+  memoizedNodeData,
+  handleMemoizeNodeData,
+  handleMemoizeLineCounts,
+}) => {
   const { width } = useWindowSize()
   const elemH = useMemo(getTextContainerSize, [width])
   const containerRef = useRef()
   const [layoutShifted, setLayoutShifted] = useState()
   const [citation, setCitation] = useState()
+
+  const _lineCounts = lineCounts ?? data.text.map(() => _.random(4, 6, false))
+  useEffect(() => {
+    if (!lineCounts) handleMemoizeLineCounts(_lineCounts)
+  }, [lineCounts])
 
   const { orderedPositions, scrollSize } = useMemo(() => {
     if (!isOrdered || !containerRef.current) return {}
@@ -68,6 +80,7 @@ const TextView = ({ data, isOrdered, memoizedNodeData, handleMemoizeNodeData }) 
         elemH={elemH}
         element={Text}
         isOrdered={isOrdered}
+        lineCounts={_lineCounts}
         memoizedNodeData={memoizedNodeData}
         orderedPositions={orderedPositions}
         scrollSize={scrollSize}

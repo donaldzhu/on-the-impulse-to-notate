@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { CLS_ID, TIMINGS } from '../constants/stylesConstants'
+import { CLS_ID, SIZES, TIMINGS } from '../constants/stylesConstants'
 import { addEventListener } from '../utils/reactUtils'
 import { getVh } from '../utils/sizeUtils'
 import useImagesLoaded from './useImagesLoaded'
@@ -14,7 +14,7 @@ const useFadeIn = (imgLink, desktopOnly = false) => {
 
   const getVisibility = () => {
     const { top } = ref.current.getBoundingClientRect()
-    if (top <= getVh(60)) setIsShowing(true)
+    if (top <= getVh(SIZES.FADE_IN_VH)) setIsShowing(true)
     else setIsShowing(false)
   }
 

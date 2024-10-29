@@ -17,6 +17,7 @@ const DragContainer = forwardRef(function DragContainer({
   elemH,
   isOrdered,
   element: Element,
+  lineCounts,
   memoizedNodeData,
   orderedPositions = [],
   scrollSize,
@@ -108,6 +109,7 @@ const DragContainer = forwardRef(function DragContainer({
           shouldAnimate={!memoizedNodeData?.hasAnimated}
           mappedPosition={mappedPositions[i]}
           zIndex={zIndices.indexOf(i) + 1}
+          lineCount={lineCounts[i]}
           orderedPosition={orderedPositions[i]}
           handleToTop={handleToTop}
           handleUnmap={handleUnmap}

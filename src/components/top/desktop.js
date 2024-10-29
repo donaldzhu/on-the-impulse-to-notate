@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components'
 import { ReactComponent as CitationSvg } from '../../assets/svg/cursors/citation.svg'
@@ -6,7 +6,7 @@ import { ReactComponent as DefaultSvg } from '../../assets/svg/cursors/default.s
 import { ReactComponent as LinkSvg } from '../../assets/svg/cursors/link.svg'
 import { views } from '../../constants/reactConstants'
 import { FONT_SIZES_RESPONSIVE, SIZES } from '../../constants/stylesConstants'
-import { DesktopContext } from '../../context/context'
+import { DesktopContext, GlobalContext } from '../../context/context'
 import Size from '../../utils/helpers/size'
 import mixins from '../../utils/mixins'
 import { styleIf } from '../../utils/styleUtils'
@@ -26,6 +26,7 @@ const Desktop = ({
 }) => {
   const [isOrdered, setIsOrdered] = useState(false)
   const [memoizedNodeData, setMemoizedNodeData] = useState(Array(2))
+  const [lineCounts, setLineCounts] = useState()
   const [mouseData, setMouseData] = useState({
     Component: DefaultSvg,
     isBlue: false
@@ -76,11 +77,13 @@ const Desktop = ({
               element={
                 <Home
                   view={data.component}
+                  lineCounts={lineCounts}
                   memoizedNodeData={memoizedNodeData[i]}
                   isOrdered={isOrdered}
                   mixedViewFragmentIndex={mixedViewIndex}
                   handleBlueInsightsIntersect={handleBlueInsightsIntersect}
                   handleMemoizeNodeData={nodeData => handleMemoizeNodeData(i, nodeData)}
+                  handleMemoizeLineCounts={lineCounts => setLineCounts(lineCounts)}
                   handleFragmentScroll={() => onIndexRowClick()} />
               } />
           )}

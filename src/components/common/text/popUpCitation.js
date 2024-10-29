@@ -1,4 +1,3 @@
-import { useWindowSize } from '@uidotdev/usehooks'
 import styled from 'styled-components'
 import { FONT_FAMILIES, FONT_SIZES_RESPONSIVE, SIZES, SIZES_RESPONSIVE } from '../../../constants/stylesConstants'
 import useIsMobile from '../../../hooks/useIsMobile'
@@ -16,7 +15,6 @@ const PopUpCitation = ({
   fixedSize,
 }) => {
   const mouse = useWindowMouse()
-  const { width } = useWindowSize()
   const isMobile = useIsMobile()
 
   const isLeft = mouse.x <= window.innerWidth / 2

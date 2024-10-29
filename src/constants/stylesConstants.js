@@ -85,9 +85,10 @@ export const SIZES = {
   CITATION_OFFSET: new Size(20),
 
   CURSOR: new Size(30),
+  FADE_IN_VH: 60,
 
   // mobile
-  HEADER_BUTTON_PADDING: new Size(5),
+  HEADER_BUTTON_PADDING: new Size(10),
   HEADER_BARS_HEIGHT: new Size(12.5),
   PAGE_MARGIN_TOP: FONT_SIZES.LEADING_S.add(PAGE_MARGIN_MOBILE.mult(3)),
   PAGE_MAX_WIDTH: new Size(650),

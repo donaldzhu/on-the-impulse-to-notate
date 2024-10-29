@@ -10,7 +10,7 @@ import { extract, styleIf } from '../../../../utils/styleUtils'
 import VisualEssayImg from './visualEssayImg'
 
 
-const VisualEssay = ({ data, sizeData, isBlueInsights, handleBlueInsightsIntersect }) => {
+const VisualEssay = ({ data, sizeData, isBlueInsights, handleBlueInsightsIntersect, onHoverCitation }) => {
   const isMobile = useIsMobile()
   const { width } = useWindowSize()
   const parsedData = useMemo(() =>
@@ -27,12 +27,18 @@ const VisualEssay = ({ data, sizeData, isBlueInsights, handleBlueInsightsInterse
     .add(SIZES.MIXED_VIEW_PADDING_BOTTOM).css
 
   const ref = useRef()
-  useEffect(() => addEventListener(getScrolling(isMobile), 'scroll', () => {
-    if (isBlueInsights) {
-      const { top, bottom } = ref.current.getBoundingClientRect()
-      handleBlueInsightsIntersect(top <= 0 && bottom > 0)
+  useEffect(() => {
+    const eventListenerRemover = addEventListener(getScrolling(isMobile), 'scroll', () => {
+      if (isBlueInsights) {
+        const { top, bottom } = ref.current.getBoundingClientRect()
+        handleBlueInsightsIntersect(top <= 0 && bottom > 0)
+      }
+    })
+    return () => {
+      eventListenerRemover()
+      handleBlueInsightsIntersect(false)
     }
-  }), [])
+  }, [])
 
   return (
     <Container
@@ -42,7 +48,11 @@ const VisualEssay = ({ data, sizeData, isBlueInsights, handleBlueInsightsInterse
       $color={color}
       $backgroundColor={backgroundColor}>
       {parsedData.map((data, i) =>
-        <VisualEssayImg key={i} data={data} color={color} />)}
+        <VisualEssayImg
+          key={i}
+          data={data}
+          color={color}
+          onHoverCitation={onHoverCitation} />)}
     </Container>
   )
 }
