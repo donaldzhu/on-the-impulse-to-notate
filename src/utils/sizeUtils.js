@@ -1,6 +1,5 @@
 import _ from 'lodash'
 import breakpts from '../data/breakpoints'
-import { validateString } from './commonUtils'
 import { BreakptSizer } from './helpers/breakptSizer'
 
 export const breakptSorted = ['xs', 's', 'm', 'l', 'xl', 'xxl']

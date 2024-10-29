@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import { forwardRef, useState } from 'react'
 import styled from 'styled-components'
-import { SPECIAL_NODE_END, SPECIAL_NODE_START } from '../../../constants/apiConstants'
+import { SPECIAL_NODE_START } from '../../../constants/apiConstants'
 import { COLORS, FONT_FAMILIES, FONT_SIZES, FONT_WEIGHTS, SIZES } from '../../../constants/stylesConstants'
 import useIsMobile from '../../../hooks/useIsMobile'
 import { getSpecialNodeNumber, padNumber } from '../../../utils/commonUtils'

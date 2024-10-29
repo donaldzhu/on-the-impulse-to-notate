@@ -5,7 +5,6 @@ import { COLORS } from '../../../constants/stylesConstants'
 import { DesktopContext } from '../../../context/context'
 import useIsMobile from '../../../hooks/useIsMobile'
 import { addEventListener } from '../../../utils/reactUtils'
-import PopUpCitation from './popUpCitation'
 
 
 const Citation = ({ children, footnote, color, imgRef, fixedSize, onHover, style }) => {

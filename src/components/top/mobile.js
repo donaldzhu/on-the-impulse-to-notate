@@ -1,9 +1,7 @@
-
-import { useEffect, useMemo, useState } from 'react'
+import { useState } from 'react'
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import { views } from '../../constants/reactConstants'
-import mixins from '../../utils/mixins'
 import About from '../about/about'
 import MenuMobile from '../common/header/menuMobile'
 import IndexMobile from '../indices/indexMobile'

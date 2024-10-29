@@ -1,6 +1,6 @@
 import { useWindowSize } from '@uidotdev/usehooks'
 import _ from 'lodash'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { quickArray } from '../../utils/commonUtils'
 import { getImgViewFigureSize, getOrderedData } from '../../utils/styleUtils'
 import DragContainer from '../common/containers/dragContainer'

@@ -1,8 +1,5 @@
 import _ from 'lodash'
-
-import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import useToPrev from '../../hooks/useToPrev'
 import useIsMobile from '../../hooks/useIsMobile'
 
 

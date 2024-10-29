@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
 import styled from 'styled-components'
-import { FONT_FAMILIES, FONT_SIZES, FONT_SIZES_RESPONSIVE } from '../../../constants/stylesConstants'
+import { FONT_FAMILIES, FONT_SIZES_RESPONSIVE } from '../../../constants/stylesConstants'
 import parserServices from '../../../services/parserServices'
 import { validateString } from '../../../utils/commonUtils'
 import mixins from '../../../utils/mixins'
