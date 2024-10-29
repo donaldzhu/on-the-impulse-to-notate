@@ -1,16 +1,17 @@
-import { useContext, useEffect, useState } from 'react'
-import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components'
 import { ReactComponent as CitationSvg } from '../../assets/svg/cursors/citation.svg'
 import { ReactComponent as DefaultSvg } from '../../assets/svg/cursors/default.svg'
 import { ReactComponent as LinkSvg } from '../../assets/svg/cursors/link.svg'
 import { views } from '../../constants/reactConstants'
 import { FONT_SIZES_RESPONSIVE, SIZES } from '../../constants/stylesConstants'
-import { DesktopContext, GlobalContext } from '../../context/context'
+import { DesktopContext } from '../../context/context'
 import Size from '../../utils/helpers/size'
 import mixins from '../../utils/mixins'
 import { styleIf } from '../../utils/styleUtils'
 import About from '../about/about'
+import HashRedirect from '../common/hashRedirect'
 import MenuDesktop from '../common/header/menuDesktop'
 import IndexDesktop from '../indices/indexDesktop'
 import Home from './home'
@@ -87,7 +88,7 @@ const Desktop = ({
                   handleFragmentScroll={() => onIndexRowClick()} />
               } />
           )}
-          <Route path='*' element={<Navigate to={`/${views.text.url}`} replace />} />
+          <Route path='*' element={<HashRedirect />} />
         </Routes>
         {aboutIsOpened && <About />}
         {!aboutIsOpened && <IndexDesktop onRowClick={onIndexRowClick} />}
