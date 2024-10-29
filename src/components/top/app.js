@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import _ from 'lodash'
 import { useState } from 'react'
 import usePromise from 'react-promise'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import { views } from '../../constants/reactConstants'
 import { COLORS, FONT_FAMILIES, FONT_SIZES, FONT_WEIGHTS, HYPHEN, SIZES } from '../../constants/stylesConstants'
@@ -30,7 +30,7 @@ const App = () => {
   }
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <GlobalContext.Provider value={{ data }}>
         <GlobalStyle />
         <Device
@@ -42,7 +42,7 @@ const App = () => {
           handleAboutToggle={shouldOpen => setAboutIsOpened(shouldOpen)}
           handleIndexRowClick={handleIndexRowClick} />
       </GlobalContext.Provider>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
