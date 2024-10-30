@@ -1,7 +1,7 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import _ from 'lodash'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import usePromise from 'react-promise'
 import { BrowserRouter } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
@@ -28,6 +28,9 @@ const App = () => {
     setMixedViewIndex(i)
     if (!isMobile) navigate(views.mixed.url)
   }
+  useEffect(() => {
+    console.log('Cloudflare')
+  }, [])
 
   return (
     <BrowserRouter>
