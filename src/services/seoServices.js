@@ -8,10 +8,10 @@ const getWebPageSchema = subpage => ({
   '@id': window.location.href,
   '@url': window.location.href,
   name: getWebPageName(subpage),
+  image: 'https://notations.xyz/assets/01_Primary-Text/600/REF_001.webp',
   keywords: SEO.KEYWORDS,
   description: SEO.DESCRIPTION,
   isPartOf: WEBSITE_SEO,
-  primaryImageOfPage: 'assets/01_Primary-Text/600/REF_001.webp'
 })
 
 
