@@ -1,12 +1,16 @@
 import { useWindowSize } from '@uidotdev/usehooks'
 import _ from 'lodash'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { JsonLd } from 'react-schemaorg'
 import { CLS_ID, SIZES_RESPONSIVE } from '../../constants/stylesConstants'
 import { quickArray } from '../../utils/commonUtils'
 import { getOrderedData, getTextContainerSize, getTextViewSize } from '../../utils/styleUtils'
 import DragContainer from '../common/containers/dragContainer'
 import PopUpCitation from '../common/text/popUpCitation'
 import Text from '../common/text/text'
+import { SEO_TYPES, WEBSITE_SEO } from '../../constants/seoConstants'
+import seoServices from '../../services/seoServices'
+import { views } from '../../constants/reactConstants'
 
 
 const TextView = ({
@@ -73,6 +77,7 @@ const TextView = ({
 
   return (
     <>
+      <JsonLd item={seoServices.getWebPageSchema(views.text.text)} />
       <DragContainer
         ref={containerRef}
         contents={data.text}

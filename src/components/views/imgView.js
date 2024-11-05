@@ -1,6 +1,9 @@
 import { useWindowSize } from '@uidotdev/usehooks'
 import _ from 'lodash'
 import { useMemo, useState } from 'react'
+import { JsonLd } from 'react-schemaorg'
+import { views } from '../../constants/reactConstants'
+import seoServices from '../../services/seoServices'
 import { quickArray } from '../../utils/commonUtils'
 import { getImgViewFigureSize, getOrderedData } from '../../utils/styleUtils'
 import DragContainer from '../common/containers/dragContainer'
@@ -46,17 +49,20 @@ const ImgView = ({ data, isOrdered, memoizedNodeData, handleMemoizeNodeData }) =
     })
 
   return (
-    <DragContainer
-      contents={data.img}
-      elemW={imgSize}
-      elemH={imgSize}
-      element={Img}
-      isOrdered={isOrdered}
-      memoizedNodeData={memoizedNodeData}
-      orderedPositions={orderedPositions}
-      scrollSize={scrollSize}
-      handleRender={handleRender}
-      handleMemoizeNodeData={handleMemoizeNodeData} />
+    <>
+      <JsonLd item={seoServices.getWebPageSchema(views.image.text)} />
+      <DragContainer
+        contents={data.img}
+        elemW={imgSize}
+        elemH={imgSize}
+        element={Img}
+        isOrdered={isOrdered}
+        memoizedNodeData={memoizedNodeData}
+        orderedPositions={orderedPositions}
+        scrollSize={scrollSize}
+        handleRender={handleRender}
+        handleMemoizeNodeData={handleMemoizeNodeData} />
+    </>
   )
 }
 

@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { VISUAL_ESSAY_IMG_NUM } from '../../../constants/apiConstants'
-import { FRAGMENT_ID_PREFIX } from '../../../constants/reactConstants'
+import { FRAGMENT_ID_PREFIX, views } from '../../../constants/reactConstants'
 import { CLS_ID, SIZES, TIMINGS } from '../../../constants/stylesConstants'
 import visualEssays from '../../../data/visualEssays'
 import useContainerFadeIn from '../../../hooks/useContainerFadeIn'
 import useIsMobile from '../../../hooks/useIsMobile'
+import seoServices from '../../../services/seoServices'
 import { addEventListener, getScrolling } from '../../../utils/reactUtils'
 import FullContainer from '../../common/containers/fullContainer'
 import PopUpCitation from '../../common/text/popUpCitation'
@@ -97,16 +98,19 @@ const MixedView = ({
 
   const Container = isMobile ? MobileContainer : DesktopContainer
   return (
-    <Container
-      ref={containerRef}
-      id={CLS_ID.MAIN}
-      style={{
-        ...fadeStyle,
-        display: isMobile && aboutIsOpened ? 'none' : ''
-      }}>
-      {mixedViewContent}
-      <PopUpCitation {...citation} />
-    </Container>
+    <>
+      <JsonLd item={seoServices.getWebPageSchema(views.mixed.text)} />
+      <Container
+        ref={containerRef}
+        id={CLS_ID.MAIN}
+        style={{
+          ...fadeStyle,
+          display: isMobile && aboutIsOpened ? 'none' : ''
+        }}>
+        {mixedViewContent}
+        <PopUpCitation {...citation} />
+      </Container>
+    </>
   )
 }
 
