@@ -63,7 +63,6 @@ const MixedViewSection = ({
   const [bufferPadding, setBufferPadding] = useState()
 
   useEffect(() => {
-    // if (sectionHeights.length === 2)
     if (sectionHeights.length === 1 && sectionHeights[0]) {
       const { textHeight, imgHeight } = sectionHeights[0]
       const padding = Math.max(

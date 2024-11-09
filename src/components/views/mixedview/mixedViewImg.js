@@ -14,8 +14,8 @@ const MixedViewImg = ({ nodeData, onLoad, onHoverCitation }) => {
   const isMobile = useIsMobile()
   const src = getImgAtSize(imgLink, isMobile ? Math.min(600, 450 * window.devicePixelRatio) : 300)
   const { ref, opacity, style } = useFadeIn(src, true)
-  const { loaded } = useImagesLoaded(src)
-  useEffect(() => { if (loaded) onLoad() }, [loaded])
+  const { loaded } = useImagesLoaded(isMobile ? undefined : src)
+  useEffect(() => { if (loaded || isMobile) onLoad() }, [loaded])
 
   return (
     <Citation
