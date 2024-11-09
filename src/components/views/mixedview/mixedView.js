@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { JsonLd } from 'react-schemaorg'
 import styled from 'styled-components'
 import { VISUAL_ESSAY_IMG_NUM } from '../../../constants/apiConstants'
 import { FRAGMENT_ID_PREFIX, views } from '../../../constants/reactConstants'
