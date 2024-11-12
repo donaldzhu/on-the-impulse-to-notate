@@ -22,6 +22,7 @@ const MenuDesktop = ({
   const { getButtonHoverHandlers } = useContext(DesktopContext)
   const buttonHoverHandlers = getButtonHoverHandlers(isInBlueInsights)
 
+  console.log(location)
   return (
     <HeaderContainer $isBlue={!aboutIsOpened && isInBlueInsights}>
       <SiteHeader
@@ -35,7 +36,7 @@ const MenuDesktop = ({
             key={i}
             as={Link}
             to={`/${url}`}
-            $underline={`#/${url}` === location.hash}>
+            $underline={`/${url}` === location.pathname}>
             {text}
           </HeaderButton>
         )}
@@ -43,7 +44,7 @@ const MenuDesktop = ({
       <RightSideNav aboutIsOpened={aboutIsOpened}>
         {
           !aboutIsOpened &&
-          `#/${views.mixed.url}` !== location.hash &&
+          `/${views.mixed.url}` !== location.pathname &&
           <HeaderButton
             {...buttonHoverHandlers}
             onClick={handleOrder}

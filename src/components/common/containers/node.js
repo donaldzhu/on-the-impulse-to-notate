@@ -65,6 +65,7 @@ const Node = forwardRef(function Node({
         { scale: _.random(1.25, 2.25, true) },
         {
           scale: 1,
+          // duration: _.random(0.75, 1.5, true),
           duration: _.random(0.75, 1.5, true),
           ease: 'back.out(2)',
           onComplete: () => setHasAnimated(true),

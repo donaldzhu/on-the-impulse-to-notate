@@ -29,6 +29,7 @@ const useFadeIn = (imgLink, desktopOnly = false) => {
     opacity,
     style: {
       opacity: noFade ? undefined : opacity,
+      display: opacity ? 'hidden' : '',
       transition: `opacity ${TIMINGS.MIXED_FIGURE_OPACITY}ms ease-in-out`
     }
   }
