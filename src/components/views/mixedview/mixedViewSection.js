@@ -69,7 +69,6 @@ const MixedViewSection = ({
         imgHeight - textHeight + getVh(SIZES.FADE_IN_VH),
         getDesktopPaddingSize().value
       )
-      console.log(nodeData, sectionHeights, padding)
       setBufferPadding(padding)
     }
 

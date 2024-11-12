@@ -22,7 +22,7 @@ const MenuDesktop = ({
   const { getButtonHoverHandlers } = useContext(DesktopContext)
   const buttonHoverHandlers = getButtonHoverHandlers(isInBlueInsights)
 
-  console.log(location)
+
   return (
     <HeaderContainer $isBlue={!aboutIsOpened && isInBlueInsights}>
       <SiteHeader
