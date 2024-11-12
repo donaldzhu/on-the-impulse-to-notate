@@ -70,15 +70,20 @@ const DragContainer = forwardRef(function DragContainer({
       convertCoors({ x, y }, true)), [width, height, isOrdered])
 
   useEffect(() => {
+    const container = containerRef.current
     if (!isOrdered)
-      containerRef.current.scrollTo({ top: 0, behavior: 'smooth' })
+      container.scrollTo({ top: 0, behavior: 'smooth' })
+    else container.style.overflow = 'scroll'
   }, [isOrdered])
 
   const fadeStyle = useContainerFadeIn()
-  useEffect(() => () => {
-    handleMemoizeNodeData({
-      unmappedPositions, zIndices, hasAnimated: hasAnimatedRef.current
-    })
+  useEffect(() => {
+    containerRef.current.style.overflow = 'hidden'
+    return () => {
+      handleMemoizeNodeData({
+        unmappedPositions, zIndices, hasAnimated: hasAnimatedRef.current
+      })
+    }
   }, [])
 
   const handleToTop = i => setZIndices(prev => [..._.without(prev, i), i])
@@ -91,14 +96,16 @@ const DragContainer = forwardRef(function DragContainer({
     })
 
   const handleAnimate = () => hasAnimatedRef.current = true
+  const handleUnorderScroll = () => {
+    const container = containerRef.current
+    if (!container.scrollTop && !isOrdered) container.style.overflow = 'hidden'
+  }
 
   return (
     <StyledContainer
-      style={{
-        ...fadeStyle,
-        overflowY: isOrdered ? 'scroll' : 'hidden',
-      }}
-      ref={containerRef}>
+      ref={containerRef}
+      style={fadeStyle}
+      onScroll={handleUnorderScroll}>
       {contents.map((content, i) =>
         <Node
           {...content}
@@ -119,17 +126,18 @@ const DragContainer = forwardRef(function DragContainer({
           handleCitationHover={handleCitationHover}
           render={Element} />
       )}
-      <ScrollSizer style={{
-        top: validateString(isOrdered, top),
-        height: isOrdered ? `${scrollSize}px` : '100dvh'
-      }} />
+      <ScrollSizer
+        style={{
+          top: validateString(isOrdered, top),
+          height: isOrdered ? `${scrollSize}px` : '100dvh'
+        }}
+      />
     </StyledContainer>
   )
 })
 
 const StyledContainer = styled(FullContainer)`
-  pointer-events: none;
-
+  /* pointer-events: none; */
   div, figure {
     pointer-events: initial;
   }
