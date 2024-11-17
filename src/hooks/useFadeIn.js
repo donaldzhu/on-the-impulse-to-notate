@@ -10,7 +10,7 @@ const useFadeIn = (imgLink, desktopOnly = false) => {
   const isMobile = useIsMobile()
   const noFade = desktopOnly && isMobile
   const [isShowing, setIsShowing] = useState(false)
-  const { loaded } = useImagesLoaded(imgLink)
+  const { loaded } = useImagesLoaded(isMobile ? undefined : imgLink)
 
   const getVisibility = () => {
     const { top } = ref.current.getBoundingClientRect()

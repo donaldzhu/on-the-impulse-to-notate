@@ -54,6 +54,7 @@ const HeaderContainer = styled(Header)`
   padding: ${SIZES.PAGE_MARGIN_MOBILE.sub(SIZES.HEADER_BUTTON_PADDING).css};
   box-sizing: border-box;
   position: fixed;
+  top: 0;
   background-color: ${({ $isIndex }) => $isIndex ? COLORS.BEIGE : 'white'};
 
   a, button {

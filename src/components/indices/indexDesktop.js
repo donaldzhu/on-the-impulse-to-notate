@@ -41,6 +41,7 @@ const IndexDesktop = ({ onRowClick }) => {
   const handleRowClick = (e, { imgNum }) => {
     e.stopPropagation()
     onRowClick(imgNum[0])
+    setShouldAnimate(true)
     setIndexIsOpened(false)
   }
 

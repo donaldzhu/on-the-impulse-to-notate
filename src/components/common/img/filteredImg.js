@@ -3,6 +3,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import useIsMobile from '../../../hooks/useIsMobile'
 import mixins from '../../../utils/mixins'
+import { validateString } from '../../../utils/commonUtils'
 
 const FilteredImg = ({
   maxWidth,
@@ -31,6 +32,7 @@ const FilteredImg = ({
         $maxWidth={maxWidth}
         $maxHeight={maxHeight}
         $isMobile={isMobile}
+        loading={validateString(isMobile, 'lazy')}
         onLoad={onLoad} />
     </FilterImgContainer>
   )

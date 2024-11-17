@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { useEffect } from 'react'
-import { IMG_SRCSET, SIZES_RESPONSIVE } from '../../../constants/stylesConstants'
+import { SIZES_RESPONSIVE } from '../../../constants/stylesConstants'
 import useImagesLoaded from '../../../hooks/useImagesLoaded'
 import { getImgAtSize } from '../../../utils/sizeUtils'
 import Figure from './figure'

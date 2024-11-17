@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
-import { createGlobalStyle } from 'styled-components'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import styled, { createGlobalStyle } from 'styled-components'
 import { views } from '../../constants/reactConstants'
 import About from '../about/about'
 import MenuMobile from '../common/header/menuMobile'
@@ -21,12 +21,11 @@ const Mobile = ({
   const isAbout = aboutIsOpened && !indexIsOpened
 
   const handleClose = () => setIndexIsOpened(false)
-  const navigate = useNavigate()
-  const onIndexRowClick = index => handleIndexRowClick(index, navigate)
+  const onIndexRowClick = index => handleIndexRowClick(index)
   return (
     <>
       <DeviceStyle $isAbout={isAbout} />
-      <div>
+      <Container>
         <MenuMobile
           aboutIsOpened={aboutIsOpened}
           indexIsOpened={indexIsOpened}
@@ -46,7 +45,7 @@ const Mobile = ({
         </Routes>
         {aboutIsOpened && <About />}
         {indexIsOpened && <IndexMobile onRowClick={onIndexRowClick} onClose={handleClose} />}
-      </div >
+      </Container>
     </>
   )
 }
@@ -63,5 +62,8 @@ const DeviceStyle = createGlobalStyle`
   }
 `
 
+const Container = styled.div`
+  position: relative;
+`
 
 export default Mobile
