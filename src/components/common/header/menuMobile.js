@@ -24,6 +24,7 @@ const MenuMobile = ({
       <SiteHeader defaultPath={views.mixed.url} onClick={() => {
         onToggleIndex(false)
         window.scrollTo({ top: 0, behavior: 'smooth' })
+        handleAboutToggle(false)
       }} />
       <div>
         <button onClick={() => onToggleIndex(!indexIsOpened)}>

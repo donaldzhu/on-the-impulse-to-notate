@@ -25,7 +25,8 @@ const Mobile = ({
   return (
     <>
       <DeviceStyle $isAbout={isAbout} />
-      <Container>
+      <Container
+        onScroll={e => console.log(e)}>
         <MenuMobile
           aboutIsOpened={aboutIsOpened}
           indexIsOpened={indexIsOpened}
@@ -60,6 +61,10 @@ const DeviceStyle = createGlobalStyle`
   div {
     overflow-x: hidden;
   }
+
+  /* * {
+    cursor: none !important;
+  } */
 `
 
 const Container = styled.div`

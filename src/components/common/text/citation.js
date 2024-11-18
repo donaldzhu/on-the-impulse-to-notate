@@ -11,16 +11,16 @@ const Citation = ({ children, footnote, color, imgRef, fixedSize, onHover, style
   const [isHovering, setIsHovering] = useState(false)
   const ref = useClickAway(() => setIsHovering(false))
   const isMobile = useIsMobile()
-  const [touched, setIsTouched] = useState(false)
   const { getCitationHoverHandlers } = useContext(DesktopContext)
   const buttonHoverHandlers = getCitationHoverHandlers(color === COLORS.BLUE)
 
   useEffect(() => setIsHovering(isHovering), [isHovering])
+
   useEffect(() => addEventListener(window, 'scroll', () => {
-    if (isMobile && touched) setIsHovering(false)
-  }), [])
-  useEffect(() => addEventListener(window, 'scrollend', () => {
-    if (isMobile && touched) setIsHovering(false)
+    if (isMobile) {
+      setIsHovering(false)
+      onHover()
+    }
   }), [])
 
   const handleMouseOver = () => {
@@ -43,7 +43,6 @@ const Citation = ({ children, footnote, color, imgRef, fixedSize, onHover, style
       <CitationSpan
         ref={ref}
         style={style}
-        onTouchStart={() => setIsTouched(true)}
         onMouseEnter={handleMouseOver}
         onMouseLeave={handleMouseOut}
         onMouseOver={handleMouseOver}
